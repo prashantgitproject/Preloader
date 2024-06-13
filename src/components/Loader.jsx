@@ -11,24 +11,22 @@ const Loader = ({bgcolor, type, size}) => {
         setTimeout(() => {
             setInvert(prev => setInvert(!prev))
         }, 500)
+        console.log(size)
     }, [invert])
 
-    let loaderSize;
 
-    if(size === 'small') { loaderSize = 12};
-    if(size === 'medium') {loaderSize = 15};
-    if(size === 'large') {loaderSize = 18};
 
   return (
     <div className={`fixed inset-0 h-[100vh] flex justify-center items-center ${bgcolor} z-10`}>
+      {<div>{size}</div>}
       {type === 'lateral' && (
-        <img className={`w-[${loaderSize}rem] h-[${loaderSize}rem] ${invert? '-scale-x-100' : "scale-x-100"}`} src={'/transLogo.png'} alt="Logo" />
+        <img className={` ${invert? '-scale-x-100' : "scale-x-100"}`} src={'/transLogo.png'} alt="Logo" style={{width: `${size}rem`, height: `${size}rem`}}/>
       )}
       {type === 'spin' && (
-        <img className={`w-[${loaderSize}rem] h-[${loaderSize}rem] animate-spin`} src={'/transLogo.png'} alt="Logo" />
+        <img className={` animate-spin`} src={'/transLogo.png'} alt="Logo" style={{width: `${size}rem`, height: `${size}rem`}}/>
       )}
       {type === 'mix' && (
-        <img className={`w-[${loaderSize}rem] h-[${loaderSize}rem] rotate-image`} src={'/transLogo.png'} alt="Logo" />
+        <img className={` rotate-image`} src={'/transLogo.png'} alt="Logo" style={{width: `${size}rem`, height: `${size}rem`}}/>
       )}
     </div>
   );

@@ -11,7 +11,7 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [bgcolor, setBgcolor] = useState('bg-black/90')
   const [type, setType] = useState('lateral')
-  const [size, setSize] = useState('medium')
+  const [size, setSize] = useState(15)
 
   useEffect(() => {
     if(isLoading){

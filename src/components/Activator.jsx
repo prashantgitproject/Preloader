@@ -35,9 +35,9 @@ const Activator = ({setIsLoading, setBgcolor, setType, setSize}) => {
     }
 
     const sizeClick = (data) => {
-        if(data === 'small') {setSmall(true), setMedium(false), setLarge(false), setSize('small')}
-        if(data === 'medium') {setSmall(false), setMedium(true), setLarge(false), setSize('medium')}
-        if(data === 'large') {setSmall(false), setMedium(false), setLarge(true), setSize('large')}
+        if(data === 'small') {setSmall(true), setMedium(false), setLarge(false), setSize(12), console.log(data, 12)}
+        if(data === 'medium') {setSmall(false), setMedium(true), setLarge(false), setSize(15), console.log(data, 15)}
+        if(data === 'large') {setSmall(false), setMedium(false), setLarge(true), setSize(18), console.log(data, 18)}
     }
 
 
