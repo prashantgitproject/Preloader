@@ -8,16 +8,23 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 
 const Page = () => {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+  const [started, setStarted] = useState(true)
   const [bgcolor, setBgcolor] = useState('bg-black/90')
-  const [type, setType] = useState('lateral')
+  const [type, setType] = useState('Spinner')
   const [size, setSize] = useState(15)
+
+  useEffect(() => {
+      setTimeout(() => {
+        setStarted(false)
+      }, 2000)
+  }, [])
 
   useEffect(() => {
     if(isLoading){
       setTimeout(() => {
         setIsLoading(false)
-      }, 3000)
+      }, 8000)
     }
   }, [isLoading])
 
@@ -26,8 +33,13 @@ const Page = () => {
     <div>
         <>
         {
+          started && (
+            <Loader type={type} bgcolor={bgcolor} setIsLoading={setIsLoading} size={12}/>
+          )
+        }
+        {
           isLoading && (
-            <Loader bgcolor={bgcolor} type={type} size={size}/>
+            <Loader bgcolor={bgcolor} type={type} size={size} setIsLoading={setIsLoading}/>
           )
         }
         <Header/>
