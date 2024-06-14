@@ -21,11 +21,15 @@ const Page = () => {
   }, [])
 
   useEffect(() => {
-    if(isLoading){
-      setTimeout(() => {
+
+      const timeOutId = setTimeout(() => {
         setIsLoading(false)
       }, 8000)
-    }
+
+      return () => {
+        clearTimeout(timeOutId);
+      } 
+
   }, [isLoading])
 
 
